@@ -1,8 +1,8 @@
 import React from "react";
 
 class ImageCard extends React.Component {
-  state = {spans: 2};
-  constructor(props){
+  state = { spans: 2 };
+  constructor(props) {
     super(props);
     this.imageRef = React.createRef();
   }
@@ -10,16 +10,16 @@ class ImageCard extends React.Component {
   componentDidMount() {
     this.imageRef.current.addEventListener('load', e => {
       const height = this.imageRef.current.clientHeight;
-      console.log(Math.ceil(height/10))
-      this.setState({spans: Math.ceil(height/10)})
+      console.log(Math.ceil(height / 10))
+      this.setState({ spans: Math.ceil(height / 10) })
     })
   }
 
-  render(){
+  render() {
     return (
-    <div style={{gridRowEnd: `span ${this.state.spans}`}} className="ImageList">
-      <img  ref={this.imageRef} key={this.props.image.id} src={this.props.image.urls.regular} />
-    </div>
+      <div style={{ gridRowEnd: `span ${this.state.spans}` }} className="ImageList">
+        <img ref={this.imageRef} key={this.props.image.id} src={this.props.image.urls.regular} alt={this.props.image.alt_description} />
+      </div>
     );
   }
 }
