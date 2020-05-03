@@ -15,4 +15,4 @@ deploy:
   repo: ramclen/ramclen.github.io
   local_dir: build
   on:
-    branch: gh-pages
+    branch: master
