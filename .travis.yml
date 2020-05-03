@@ -6,13 +6,16 @@ cache:
   - node_modules
 script:
   - npm run build
+  - npm run post-build
 deploy:
   provider: pages
   target_branch: gh-pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN  
-  keep_history: true
   repo: ramclen/ramclen.github.io
-  local_dir: build
+  local_dir: deploy
+  verbose: true
+  draft: true
+  overwrite: true
   on:
     branch: master
